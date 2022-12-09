@@ -17,7 +17,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar ">
+        <nav id="sidebarMenu" class="col-xl-2 col-md-3 col-lg-2 d-md-block bg-light sidebar ">
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
@@ -27,17 +27,17 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            Добавление темы / Изменение темы
+                            Темы
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                            Добавление тестов / Изменение тестов
+                            Тесты
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">
-                           Добавление практики / Изменение практики
+                           Практика
                         </a>
                     </li>
                     <li class="nav-item">
