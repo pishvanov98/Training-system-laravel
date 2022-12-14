@@ -18,10 +18,10 @@
 <div class="container-list">
                 <ul>
                     <li >
-                        <a class="active" href="#"> Главная </a>
+                        <a  href="{{ route('admin')  }}"> Главная </a>
                     </li>
                     <li>
-                        <a href="#">Темы </a>
+                        <a href="{{ route('admin.theme')  }}">Темы </a>
                     </li>
                     <li>
                         <a href="#"> Тесты </a>
