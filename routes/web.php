@@ -16,9 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'AuthorizationController@index');
 
 Route::group(['namespace' => 'Admin', 'prefix'=> 'admin'], function(){//prefix подставляет admin во всё что внутри группы в пути , namespace группа контрорреров в папке Admin
-    Route::get('', 'AdminController@index');
-    Route::group(['namespace' => 'Training'], function(){
-        Route::get('/training', 'IndexController');
+    Route::get('', 'AdminController@index')->name('admin');
+    Route::group(['namespace' => 'Theme'], function(){
+        Route::get('/theme', 'IndexController')->name('admin');
     });
 });
 

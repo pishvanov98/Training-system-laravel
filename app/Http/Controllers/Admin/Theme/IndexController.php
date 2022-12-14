@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Training;
+namespace App\Http\Controllers\Admin\Theme;
 
 use App\Http\Controllers\Controller;
 use function view;
@@ -8,6 +8,6 @@ use function view;
 class IndexController extends Controller
 {
     public function __invoke (){
-        return view('admin.training.index');
+        return view('admin.theme.index');
     }
 }
