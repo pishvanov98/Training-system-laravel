@@ -20,6 +20,7 @@ class CreateThemeTable extends Migration
             $table->text('small_description');
             $table->text('full_description');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

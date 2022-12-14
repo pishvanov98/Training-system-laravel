@@ -18,7 +18,7 @@ Route::get('/', 'AuthorizationController@index');
 Route::group(['namespace' => 'Admin', 'prefix'=> 'admin'], function(){//prefix подставляет admin во всё что внутри группы в пути , namespace группа контрорреров в папке Admin
     Route::get('', 'AdminController@index')->name('admin');
     Route::group(['namespace' => 'Theme'], function(){
-        Route::get('/theme', 'IndexController')->name('admin.theme');
+        Route::get('/theme', 'IndexController@index')->name('admin.theme');
     });
 });
 
