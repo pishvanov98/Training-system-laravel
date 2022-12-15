@@ -10,9 +10,8 @@ class IndexController extends Controller
 {
     public function index (){
 
-        $test=AdminTheme::all();
-        dd($test);
+        $themes=AdminTheme::all();
 
-        return view('admin.theme.index');
+        return view('admin.theme.index', compact('themes'));
     }
 }

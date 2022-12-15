@@ -17,6 +17,7 @@ class CreateThemeTable extends Migration
             $table->id();
             $table->string('name_theme');
             $table->string('category');
+            $table->string('image')->nullable();
             $table->text('small_description');
             $table->text('full_description');
             $table->timestamps();
