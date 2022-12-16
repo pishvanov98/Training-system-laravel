@@ -50,33 +50,64 @@
     .main_content_admin{
         width: 100%;
         padding: 10px;
+        .top_block{
+            display: flex;
+            flex-direction: row;
+            padding: 0 10px;
+            justify-content: space-between;
+            a{
+                color: #000;
+                text-decoration: none;
+                font-size: 16px;
+            }
+        }
+        .container_theme{
+            display: flex;
+            flex-direction: row;
+            margin-bottom: 10px;
+            padding: 20px;
+            -webkit-box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+            box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+            border-radius: 12px;
+            a{
+                display: flex;
+                flex-direction: row;
+                align-items: flex-start;
+                color: #000;
+                text-decoration: none;
+                font-size: 16px;
+                width: 85%;
+                padding-right: 10px;
+                border-right: 2px solid #e8e8e8;
+                img{
+                    width: 300px;
+                    height: 150px;
+                }
+                span{
+                    margin: 0 10px;
+                }
+                .name_theme{
+                    min-width: 15%;
+                    text-align: center;
+                    border-left: 2px solid #e8e8e8;
+                    border-right: 2px solid #e8e8e8;
+                    padding-left: 0 10px;
+                    height: 100%;
+                }
+            }
+            .button_edit_theme{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                width: 15%;
+                a{
+                    justify-content: center;
+                    height: 100%;
+                    align-items: center;
+                }
+            }
+
+        }
     }
 }
 
-.container_theme{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 10px;
-    a{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        color: #000;
-        text-decoration: none;
-        font-size: 16px;
-        width: 75%;
-        img{
-            width: 300px;
-            height: 150px;
-        }
-        span{
-            margin: 0 10px;
-        }
-    }
-    .button_edit_theme{
-        display: flex;
-        flex-direction: row;
-        width: 25%;
-    }
-
-}
