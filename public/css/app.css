@@ -10874,9 +10874,17 @@ textarea.form-control-lg {
   justify-content: space-between;
 }
 .wrapper_content_admin .main_content_admin .top_block a {
-  color: #000;
+  background-color: #252733;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  width: 172px;
+  display: block;
+  font-size: 15px;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
   text-decoration: none;
-  font-size: 16px;
 }
 .wrapper_content_admin .main_content_admin .container_theme {
   display: flex;
@@ -10893,7 +10901,7 @@ textarea.form-control-lg {
   color: #000;
   text-decoration: none;
   font-size: 16px;
-  width: 85%;
+  width: 90%;
   padding-right: 10px;
   border-right: 2px solid #e8e8e8;
 }
@@ -10914,12 +10922,20 @@ textarea.form-control-lg {
 }
 .wrapper_content_admin .main_content_admin .container_theme .button_edit_theme {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  width: 15%;
+  justify-content: space-around;
+  width: 10%;
 }
 .wrapper_content_admin .main_content_admin .container_theme .button_edit_theme a {
-  justify-content: center;
-  height: 100%;
-  align-items: center;
+  background-color: #252733;
+  color: #fff;
+  height: 30px;
+  line-height: 30px;
+  display: block;
+  font-size: 15px;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
 }

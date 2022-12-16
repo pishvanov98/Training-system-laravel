@@ -56,9 +56,17 @@
             padding: 0 10px;
             justify-content: space-between;
             a{
-                color: #000;
+                background-color: #252733;
+                color: #fff;
+                height: 30px;
+                line-height: 30px;
+                width: 172px;
+                display: block;
+                font-size: 15px;
+                border-radius: 4px;
+                text-align: center;
+                cursor: pointer;
                 text-decoration: none;
-                font-size: 16px;
             }
         }
         .container_theme{
@@ -76,7 +84,7 @@
                 color: #000;
                 text-decoration: none;
                 font-size: 16px;
-                width: 85%;
+                width: 90%;
                 padding-right: 10px;
                 border-right: 2px solid #e8e8e8;
                 img{
@@ -97,13 +105,21 @@
             }
             .button_edit_theme{
                 display: flex;
-                flex-direction: row;
+                flex-direction: column;
                 align-items: center;
-                width: 15%;
+                justify-content: space-around;
+                width: 10%;
                 a{
-                    justify-content: center;
-                    height: 100%;
-                    align-items: center;
+                    background-color: #252733;
+                    color: #fff;
+                    height: 30px;
+                    line-height: 30px;
+                    display: block;
+                    font-size: 15px;
+                    border-radius: 4px;
+                    text-align: center;
+                    cursor: pointer;
+                    text-decoration: none;
                 }
             }
 
