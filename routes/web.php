@@ -19,6 +19,7 @@ Route::group(['namespace' => 'Admin', 'prefix'=> 'admin'], function(){//prefix Ğ
     Route::get('', 'AdminController@index')->name('admin');
     Route::group(['namespace' => 'Theme'], function(){
         Route::get('/theme', 'IndexController@index')->name('admin.theme');
+        Route::get('/theme/create', 'IndexController@create')->name('admin.theme.create');
     });
 });
 

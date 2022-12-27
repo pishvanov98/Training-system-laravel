@@ -1,7 +1,7 @@
 @extends('layouts.mainAdmin')
 @section('content')
     <div class="main_content_admin">
-        <div class="top_block"><h2> Страница  с темами</h2><a href="#">Добавить тему</a></div>
+        <div class="top_block"><h2> Страница  с темами</h2><a href="{{ route('admin.theme.create')  }}">Добавить тему</a></div>
         @foreach($themes as $theme)
             <div class="container_theme">
                 <a href="#">

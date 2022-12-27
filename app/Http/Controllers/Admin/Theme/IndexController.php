@@ -14,4 +14,9 @@ class IndexController extends Controller
 
         return view('admin.theme.index', compact('themes'));
     }
+
+    public function create (){
+
+        return view('admin.theme.create');
+    }
 }
