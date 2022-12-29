@@ -19,7 +19,8 @@ Route::group(['namespace' => 'Admin', 'prefix'=> 'admin'], function(){//prefix �
     Route::get('', 'AdminController@index')->name('admin');
     Route::group(['namespace' => 'Theme'], function(){
         Route::get('/theme', 'IndexController@index')->name('admin.theme');
-        Route::get('/theme/create', 'IndexController@create')->name('admin.theme.create');
+        Route::get('/theme/create', 'IndexController@create')->name('admin.theme.create');//страница с формой создания темы
+        Route::post('/theme', 'IndexController@store')->name('admin.theme.store');//метод добавления в базу
     });
 });
 

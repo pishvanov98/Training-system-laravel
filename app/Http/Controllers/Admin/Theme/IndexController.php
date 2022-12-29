@@ -19,4 +19,17 @@ class IndexController extends Controller
 
         return view('admin.theme.create');
     }
+
+    public function store (){
+        $data= request()->validate([
+        'name_theme'=>'',
+        'category'=>'',
+        'image'=>'',
+        'small_description'=>'',
+        'full_description'=>'',
+        ]);
+       AdminTheme::create($data);
+       return redirect()->route('admin.theme');
+    }
+
 }
