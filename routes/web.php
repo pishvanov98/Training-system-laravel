@@ -21,6 +21,10 @@ Route::group(['namespace' => 'Admin', 'prefix'=> 'admin'], function(){//prefix �
         Route::get('/theme', 'IndexController@index')->name('admin.theme');
         Route::get('/theme/create', 'IndexController@create')->name('admin.theme.create');//страница с формой создания темы
         Route::post('/theme', 'IndexController@store')->name('admin.theme.store');//метод добавления в базу
+        Route::get('/theme/edit/{item}', 'IndexController@edit')->name('admin.theme.edit');//метод c формой на изменение темы
+        Route::patch('/theme/{item}', 'IndexController@update')->name('admin.theme.update');//метод c изменения данных темы
+        Route::delete('/theme/{item}', 'IndexController@destroy')->name('admin.theme.delete');//метод удаления темы, в форме идет отправка
+
     });
 });
 

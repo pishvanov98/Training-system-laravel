@@ -10898,25 +10898,24 @@ textarea.form-control-lg {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   border-radius: 12px;
 }
-.wrapper_content_admin .main_content_admin .container_theme a {
+.wrapper_content_admin .main_content_admin .container_theme .content_theme {
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   color: #000;
-  text-decoration: none;
   font-size: 16px;
   width: 92%;
   padding-right: 10px;
   border-right: 2px solid #e8e8e8;
 }
-.wrapper_content_admin .main_content_admin .container_theme a img {
+.wrapper_content_admin .main_content_admin .container_theme .content_theme img {
   width: 300px;
   height: 150px;
 }
-.wrapper_content_admin .main_content_admin .container_theme a span {
+.wrapper_content_admin .main_content_admin .container_theme .content_theme span {
   margin: 0 10px;
 }
-.wrapper_content_admin .main_content_admin .container_theme a .name_theme {
+.wrapper_content_admin .main_content_admin .container_theme .content_theme .name_theme {
   min-width: 15%;
   text-align: center;
   border-left: 2px solid #e8e8e8;
@@ -10933,7 +10932,7 @@ textarea.form-control-lg {
   min-width: 150px;
   padding-left: 10px;
 }
-.wrapper_content_admin .main_content_admin .container_theme .button_edit_theme a {
+.wrapper_content_admin .main_content_admin .container_theme .button_edit_theme a, .wrapper_content_admin .main_content_admin .container_theme .button_edit_theme input {
   background-color: #252733;
   color: #fff;
   height: 30px;
@@ -10945,4 +10944,7 @@ textarea.form-control-lg {
   cursor: pointer;
   text-decoration: none;
   min-width: 115px;
+}
+.wrapper_content_admin .main_content_admin .container_theme .button_edit_theme input {
+  line-height: 26px;
 }
