@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\Theme;
 
 use App\Http\Controllers\Controller;
+use App\Models\AdminCategoryTheme;
 use App\Models\AdminTheme;
 use function view;
 
@@ -17,7 +18,9 @@ class IndexController extends Controller
 
     public function create (){
 
-        return view('admin.theme.create');
+        $categories=AdminCategoryTheme::all();
+
+        return view('admin.theme.create', compact('categories'));
     }
 
     public function store (){
@@ -35,8 +38,8 @@ class IndexController extends Controller
     public function edit ($id){
 
        $data= AdminTheme::findOrFail($id);
-
-       return view('admin.theme.edit',compact('data') );
+        $categories=AdminCategoryTheme::all();
+       return view('admin.theme.edit',compact('data','categories') );
     }
 
     public function update ($id) {

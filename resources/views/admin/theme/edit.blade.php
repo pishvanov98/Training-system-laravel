@@ -11,7 +11,11 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputThem" class="form-label">Категория темы</label>
-                <input type="text" value="{{$data->category}}" name="category" class="form-control" id="exampleInputThem" >
+                <select class="form-select" name="category" id="exampleInputThem" aria-label="Default select example">
+                    @foreach($categories as $category)
+                        <option {{  $data->category == $category->id ? 'selected':''  }} value="{{$category->id}}">{{ $category->name_category}}</option>
+                    @endforeach
+                </select>
             </div>
             <div class="mb-3">
                 <label for="exampleInputImage" class="form-label">Картинка темы</label>

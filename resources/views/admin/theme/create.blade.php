@@ -9,8 +9,13 @@
                 <input type="text" name="name_theme" class="form-control" id="exampleInputName" >
             </div>
             <div class="mb-3">
-                <label for="exampleInputThem" class="form-label">Категория темы</label>
-                <input type="text" name="category" class="form-control" id="exampleInputThem" >
+            <label for="exampleInputThem" class="form-label">Категория темы</label>
+            <select class="form-select" name="category" id="exampleInputThem" aria-label="Default select example">
+                <option selected>Выберите категорию</option>
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{ $category->name_category}}</option>
+                    @endforeach
+            </select>
             </div>
             <div class="mb-3">
                 <label for="exampleInputImage" class="form-label">Картинка темы</label>
