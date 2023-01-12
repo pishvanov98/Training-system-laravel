@@ -24,10 +24,13 @@
                         <a href="{{ route('admin.theme')  }}">Темы </a>
                     </li>
                     <li>
-                        <a href="#"> Тесты </a>
+                        <a href="{{ route('admin.category')  }}">Категории тем </a>
                     </li>
                     <li>
-                        <a href="#"> Практика </a>
+                        <a href="#"> Тесты тем </a>
+                    </li>
+                    <li>
+                        <a href="#"> Практика тем </a>
                     </li>
                     <li >
                         <a href="#"> Ученики</a>

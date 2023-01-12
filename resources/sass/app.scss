@@ -134,5 +134,33 @@
 
         }
     }
+
+    .container_category_theme{
+        display: flex;
+        flex-direction: row;
+        margin-bottom: 10px;
+        padding: 20px;
+        box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+        border-radius: 12px;
+        justify-content: space-between;
+        align-items: center;
+        .button_edit_theme input{
+            background-color: #252733;
+            color: #fff;
+            height: 30px;
+            display: block;
+            font-size: 15px;
+            border-radius: 4px;
+            text-align: center;
+            cursor: pointer;
+            text-decoration: none;
+            min-width: 115px;
+            line-height: 26px;
+        }
+    }
+
 }
+
+
+
 

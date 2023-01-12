@@ -10948,3 +10948,26 @@ textarea.form-control-lg {
 .wrapper_content_admin .main_content_admin .container_theme .button_edit_theme input {
   line-height: 26px;
 }
+.wrapper_content_admin .container_category_theme {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  justify-content: space-between;
+  align-items: center;
+}
+.wrapper_content_admin .container_category_theme .button_edit_theme input {
+  background-color: #252733;
+  color: #fff;
+  height: 30px;
+  display: block;
+  font-size: 15px;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  min-width: 115px;
+  line-height: 26px;
+}

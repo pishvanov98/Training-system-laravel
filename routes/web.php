@@ -28,6 +28,11 @@ Route::get('/login', 'AuthorizationController@index');
             Route::patch('/theme/{item}', 'IndexController@update')->name('admin.theme.update');//метод c изменения данных темы
             Route::delete('/theme/{item}', 'IndexController@destroy')->name('admin.theme.delete');//метод удаления темы, в форме идет отправка
 
+            Route::get('/category', 'CategoryThemeController@index')->name('admin.category');
+            Route::delete('/category/{item}', 'CategoryThemeController@destroy')->name('admin.category.delete');//метод удаления
+            Route::get('/category/create', 'CategoryThemeController@create')->name('admin.category.create');//страница с формой создания
+            Route::post('/category', 'CategoryThemeController@store')->name('admin.category.store');//метод добавления в базу
+
         });
     });
 
