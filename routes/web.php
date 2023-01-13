@@ -18,6 +18,7 @@ Route::get('/login', 'AuthorizationController@index');
 
 
 
+
     Route::group(['namespace' => 'Admin', 'middleware' => ['role:admin'], 'prefix'=> 'admin'], function(){//prefix подставляет admin во всё что внутри группы в пути , namespace группа контрорреров в папке Admin middleware дал доступ роли админу
         Route::get('', 'AdminController@index')->name('admin');
         Route::group(['namespace' => 'Theme'], function(){
@@ -27,6 +28,9 @@ Route::get('/login', 'AuthorizationController@index');
             Route::get('/theme/edit/{item}', 'IndexController@edit')->name('admin.theme.edit');//метод c формой на изменение темы
             Route::patch('/theme/{item}', 'IndexController@update')->name('admin.theme.update');//метод c изменения данных темы
             Route::delete('/theme/{item}', 'IndexController@destroy')->name('admin.theme.delete');//метод удаления темы, в форме идет отправка
+
+            Route::post('/image/upload', 'ImageController@upload')->name('admin.image.upload');
+            Route::get('/image', 'ImageController@index')->name('admin.image');
 
             Route::get('/category', 'CategoryThemeController@index')->name('admin.category');
             Route::delete('/category/{item}', 'CategoryThemeController@destroy')->name('admin.category.delete');//метод удаления

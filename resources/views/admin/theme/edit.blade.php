@@ -19,7 +19,7 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputImage" class="form-label">Картинка темы</label>
-                <input type="text" value="{{$data->image}}" name="image" class="form-control" id="exampleInputImage" >
+                <input class="form-control" value="{{$data->image}}" name="image" type="file" id="exampleInputImage">
             </div>
             <div class="mb-3">
                 <label for="exampleInputSmallDescription" class="form-label">Маленькое описание темы</label>

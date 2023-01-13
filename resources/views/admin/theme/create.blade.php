@@ -18,8 +18,8 @@
             </select>
             </div>
             <div class="mb-3">
-                <label for="exampleInputImage" class="form-label">Картинка темы</label>
-                <input type="text" name="image" class="form-control" id="exampleInputImage" >
+                    <label for="exampleInputImage" class="form-label">Картинка темы</label>
+                    <input class="form-control" name="image" type="file" id="exampleInputImage">
             </div>
             <div class="mb-3">
                 <label for="exampleInputSmallDescription" class="form-label">Маленькое описание темы</label>

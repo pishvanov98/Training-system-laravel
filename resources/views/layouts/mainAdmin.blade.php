@@ -27,6 +27,9 @@
                         <a href="{{ route('admin.category')  }}">Категории тем </a>
                     </li>
                     <li>
+                        <a href="{{ route('admin.image')  }}">Добавление картинок </a>
+                    </li>
+                    <li>
                         <a href="#"> Тесты тем </a>
                     </li>
                     <li>
