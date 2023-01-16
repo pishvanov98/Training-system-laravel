@@ -10971,3 +10971,6 @@ textarea.form-control-lg {
   min-width: 115px;
   line-height: 26px;
 }
+.wrapper_content_admin .error {
+  border: 1px solid red;
+}

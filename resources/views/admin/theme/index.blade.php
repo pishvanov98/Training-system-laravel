@@ -5,7 +5,8 @@
         @foreach($data as $theme)
             <div class="container_theme">
                 <div class="content_theme">
-                    <img  src=" {{ asset($theme->image) }} "  >
+
+                    <img  src=" {{ asset('img/'.$theme->image) }} "  >
                     <span class="name_theme"> {{ $theme->name_theme }} </span>
                     <span class="description_theme"> {{ $theme->small_description }} </span>
                 </div>

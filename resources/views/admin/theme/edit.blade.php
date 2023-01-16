@@ -19,7 +19,12 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputImage" class="form-label">Картинка темы</label>
-                <input class="form-control" value="{{$data->image}}" name="image" type="file" id="exampleInputImage">
+                <select class="form-select" name="image" id="exampleInputImage" aria-label="Default select example">
+                    @foreach($images as $image)
+                        <option {{  $data->image == $image->image_to_server ? 'selected':''  }} value="{{$image->image_to_server}}">{{ $image->image_select}}</option>
+                    @endforeach
+                </select>
+
             </div>
             <div class="mb-3">
                 <label for="exampleInputSmallDescription" class="form-label">Маленькое описание темы</label>
