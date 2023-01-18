@@ -37,6 +37,8 @@ Route::get('/login', 'AuthorizationController@index');
             Route::get('/category/create', 'CategoryThemeController@create')->name('admin.category.create');//страница с формой создания
             Route::post('/category', 'CategoryThemeController@store')->name('admin.category.store');//метод добавления в базу
 
+            Route::get('/test', 'TestThemeController@index')->name('admin.test');
+            Route::get('/test/create', 'TestThemeController@create')->name('admin.test.create');
         });
     });
 

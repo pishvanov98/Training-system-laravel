@@ -11,18 +11,30 @@
             </div>
             <div class="mb-3">
                 <label for="exampleInputThem" class="form-label">Категория темы</label>
-                <select class="form-select" name="category" id="exampleInputThem" aria-label="Default select example">
-                    @foreach($categories as $category)
-                        <option {{  $data->category == $category->id ? 'selected':''  }} value="{{$category->id}}">{{ $category->name_category}}</option>
-                    @endforeach
+                <select class="form-select  @php if($errors->has('category')) { echo('error'); } @endphp" name="category" id="exampleInputThem" aria-label="Default select example">
+
+                    @if(empty($categories))
+                        <option value="" selected>Добавьте категорию</option>
+                    @else
+                        <option value="" >Выберите категорию</option>
+                        @foreach($categories as $category)
+                            <option {{  $data->category == $category->id ? 'selected':''  }} value="{{$category->id}}">{{ $category->name_category}}</option>
+                        @endforeach
+                    @endif
                 </select>
             </div>
             <div class="mb-3">
                 <label for="exampleInputImage" class="form-label">Картинка темы</label>
-                <select class="form-select" name="image" id="exampleInputImage" aria-label="Default select example">
-                    @foreach($images as $image)
-                        <option {{  $data->image == $image->image_to_server ? 'selected':''  }} value="{{$image->image_to_server}}">{{ $image->image_select}}</option>
-                    @endforeach
+                <select class="form-select @php if($errors->has('image')) { echo('error'); } @endphp" name="image" id="exampleInputImage" aria-label="Default select example">
+
+                    @if(empty($images))
+                        <option value="" selected>Добавьте картинку</option>
+                    @else
+                        <option value="" >Выберите картинку</option>
+                        @foreach($images as $image)
+                            <option {{  $data->image == $image->image_to_server ? 'selected':''  }} value="{{$image->image_to_server}}">{{ $image->image_select}}</option>
+                        @endforeach
+                    @endif
                 </select>
 
             </div>

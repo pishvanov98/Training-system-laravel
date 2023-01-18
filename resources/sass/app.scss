@@ -163,6 +163,16 @@
         border: 1px solid red;
     }
 
+    .wrapper_block_image{
+        margin-top: 10px;
+        .flex_block{
+            display: flex;
+            button{
+                margin-left: 10px;
+            }
+        }
+    }
+
 }
 
 

@@ -10974,3 +10974,12 @@ textarea.form-control-lg {
 .wrapper_content_admin .error {
   border: 1px solid red;
 }
+.wrapper_content_admin .wrapper_block_image {
+  margin-top: 10px;
+}
+.wrapper_content_admin .wrapper_block_image .flex_block {
+  display: flex;
+}
+.wrapper_content_admin .wrapper_block_image .flex_block button {
+  margin-left: 10px;
+}

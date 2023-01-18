@@ -12,7 +12,7 @@
 <body>
 
 <header class="header_top_block">
-    <a href="#">Company name</a>
+    <a href="{{ route('admin')  }}">Genetix</a>
 </header>
 <div class="wrapper_content_admin">
 <div class="container-list">
@@ -30,7 +30,7 @@
                         <a href="{{ route('admin.image')  }}">Добавление картинок </a>
                     </li>
                     <li>
-                        <a href="#"> Тесты тем </a>
+                        <a href="{{ route('admin.test') }}"> Тесты тем </a>
                     </li>
                     <li>
                         <a href="#"> Практика тем </a>

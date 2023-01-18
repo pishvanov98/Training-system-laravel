@@ -2,20 +2,19 @@
 @section('content')
 
             <div class="main_content_admin">
+                <h2> Загрузка картинки</h2>
+                <div class=" wrapper_block_image">
+                    <div class="mb-3">
+                        <form action="{{  route('admin.image.upload') }}" method="post" enctype="multipart/form-data">
+                            @csrf
 
-                <p>Загрузка картинки</p>
-
-                <div class="mb-3">
-                    <form action="{{  route('admin.image.upload') }}" method="post" enctype="multipart/form-data">
-                        @csrf
-
-                        <label for="exampleInputImageUpload" class="form-label">Картинка темы</label>
-                        <input class="form-control" name="image_upload" type="file" id="exampleInputImageUpload">
-
-                        <button type="submit">Загрузить</button>
-                    </form>
+                            <div class="flex_block">
+                                <input class="form-control" name="image_upload" type="file" id="exampleInputImageUpload">
+                                <button class="btn btn-secondary" type="submit">Загрузить</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
-
             </div>
 
 @endsection
