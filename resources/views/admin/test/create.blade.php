@@ -29,7 +29,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary">Сохранить</button>
+            <button type="submit" class="btn btn-primary">Сохранить тест</button>
             <button type="submit" class="btn btn-primary">Добавить вариант ответа</button>
         </div>
 
