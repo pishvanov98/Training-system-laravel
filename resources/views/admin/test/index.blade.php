@@ -3,7 +3,7 @@
 
     <div class="main_content_admin">
         <h2> Добавление тестов </h2>
-
+    <div class="wrapper_block_test">
         @if(empty($themes))
             <p>Добавьте тему</p>
         @else
@@ -17,8 +17,9 @@
                 @endforeach
             </select>
                 <button class="btn btn-secondary" type="submit">Выбрать</button>
+            </form>
         @endif
-
+    </div>
     </div>
 
 @endsection

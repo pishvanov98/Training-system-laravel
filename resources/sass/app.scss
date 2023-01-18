@@ -173,6 +173,20 @@
         }
     }
 
+    .wrapper_block_test{
+        form{
+            display: flex;
+            button{
+                margin-left: 10px;
+            }
+        }
+    }
+    .answer_create_block{
+        margin-top: 15px;
+        padding-top: 20px;
+        border-top: #4c33333d solid 2px;
+    }
+
 }
 
 
