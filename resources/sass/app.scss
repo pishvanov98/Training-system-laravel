@@ -186,7 +186,10 @@
     padding: 10px 10px;
     box-shadow: 0 0 20px rgb(0 0 0 / 10%);
     border-radius: 12px;
-
+    margin-bottom: 10px;
+    &.hide{
+        display: none;
+    }
     .answer_create_block{
         margin-top: 15px;
         padding-top: 20px;
