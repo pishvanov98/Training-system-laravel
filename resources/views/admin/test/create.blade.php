@@ -64,7 +64,7 @@
         });
 
         var num=1;
-
+        var num_answer = 2;
         function add_question(){
 
            $(".block_test.hide").clone().appendTo($(".block_test_wrapper"));
@@ -77,12 +77,14 @@
             $('.block_test:last-child .add_answer').attr("onclick","add_answer('add_answer_num"+num+"')");
            $('.block_test:last-child .answer_create_block .num_answer').text("Введите вариант ответа №1");
             num++;
+            num_answer= 2;
        }
-        var num_answer = 2;
+
            function add_answer(item_answer){
+               console.log();
                $(".answer_create_item.hide").clone().appendTo($("."+item_answer));
-               $("."+item_answer+ " .answer_create_item .num_answer").text("Введите вопрос №"+num_answer);
-               $("."+item_answer+ " .answer_create_item").removeClass('hide');
+               $(".answer_create_block .answer_create_item:last-child .num_answer").text("Введите вариант ответа №"+num_answer);
+               $(".answer_create_block .answer_create_item:last-child").removeClass('hide');
                num_answer++;
            }
 
