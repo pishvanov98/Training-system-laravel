@@ -10989,8 +10989,15 @@ textarea.form-control-lg {
 .wrapper_content_admin .wrapper_block_test form button {
   margin-left: 10px;
 }
-.wrapper_content_admin .answer_create_block {
+.wrapper_content_admin .block_test {
+  padding: 10px 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+}
+.wrapper_content_admin .block_test .answer_create_block {
   margin-top: 15px;
   padding-top: 20px;
-  border-top: rgba(76, 51, 51, 0.2392156863) solid 2px;
+}
+.wrapper_content_admin .block_test_bottom {
+  margin-top: 10px;
 }

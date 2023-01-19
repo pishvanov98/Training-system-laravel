@@ -181,10 +181,19 @@
             }
         }
     }
+
+.block_test{
+    padding: 10px 10px;
+    box-shadow: 0 0 20px rgb(0 0 0 / 10%);
+    border-radius: 12px;
+
     .answer_create_block{
         margin-top: 15px;
         padding-top: 20px;
-        border-top: #4c33333d solid 2px;
+    }
+}
+    .block_test_bottom{
+        margin-top: 10px;
     }
 
 }
