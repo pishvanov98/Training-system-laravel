@@ -17,7 +17,7 @@
                 <div class="answer_create_block">
 
                     <div class="mb-3 answer_create_item">
-                        <label for="exampleInputanswer" class="form-label num_answer">Введите вариант ответа</label>
+                        <label for="exampleInputanswer" class="form-label num_answer"></label>
                         <input type="text" name="answer" class="form-control" id="exampleInputanswer" >
                         <div class="form-check">
                             <input class="form-check-input" name="correct_answer" type="checkbox" value="" id="correct_answer">
@@ -26,9 +26,26 @@
                             </label>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary add_answer " onclick="add_answer();">Добавить вариант ответа</button>
+                </div>
+                <button type="submit" class="btn btn-primary add_answer " onclick="add_answer();">Добавить вариант ответа</button>
+            </div>
+
+
+
+
+            {{--            шаблон ответа--}}
+            <div class="mb-3 answer_create_item hide">
+                <label for="exampleInputanswer" class="form-label num_answer">Введите вариант ответа</label>
+                <input type="text" name="answer" class="form-control" id="exampleInputanswer" >
+                <div class="form-check">
+                    <input class="form-check-input" name="correct_answer" type="checkbox" value="" id="correct_answer">
+                    <label class="form-check-label" for="correct_answer">
+                        Правильный ответ
+                    </label>
                 </div>
             </div>
+
+
 
             {{-- сделать реализацию добавления доп полей с вариантами ответа,  делаем перебор по одинаковым классам и берем
              у них вариант ответа и правильный он или нет и передаем аджаксом вопрос и варианты ответа jsonom и записываем в бд id темы вопрос и варианты --}}
@@ -46,7 +63,7 @@
             add_question();
         });
 
-        var question=1;
+        var num=1;
 
         function add_question(){
 
@@ -54,16 +71,19 @@
 
            $('.block_test:last-child').removeClass('hide');
 
-           $('.block_test:last-child .num_question').text("Введите вопрос №"+question);
+           $('.block_test:last-child .num_question').text("Введите вопрос №"+num);
             // $('.block_test:last-child ').addClass("block_test_num"+question);
-            $('.block_test:last-child .answer_create_block .add_answer').addClass("add_answer_num"+question);
-            $('.block_test:last-child .answer_create_block .add_answer').attr("onclick","add_answer('add_answer_num"+question+"')");
-           $('.block_test:last-child .answer_create_block .num_answer').text("Введите вариант ответа");
-            question++;
+            $('.block_test:last-child .answer_create_block').addClass("add_answer_num"+num);
+            $('.block_test:last-child .add_answer').attr("onclick","add_answer('add_answer_num"+num+"')");
+           $('.block_test:last-child .answer_create_block .num_answer').text("Введите вариант ответа №1");
+            num++;
        }
-
+        var num_answer = 2;
            function add_answer(item_answer){
-                console.log(item_answer);
+               $(".answer_create_item.hide").clone().appendTo($("."+item_answer));
+               $("."+item_answer+ " .answer_create_item .num_answer").text("Введите вопрос №"+num_answer);
+               $("."+item_answer+ " .answer_create_item").removeClass('hide');
+               num_answer++;
            }
 
     </script>
