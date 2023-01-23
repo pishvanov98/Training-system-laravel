@@ -94,23 +94,56 @@
 
 
            function create_test(){
-
+               let arr_all = new Array();
                $('.block_test').each(function(i, obj) {
                    if(!$(obj).hasClass('hide')){ //получаю вопрос перебором
                    var question=$(obj).find('.input_question').val();
-                   console.log(question);
-
+                       let arr_answer = new Array();
                        $(obj).find('.answer_create_item').each(function(i, obj2) {
                            if(!$(obj2).hasClass('hide')){ //получаю ответ перебором
                                var answer=$(obj2).find('.input_answer').val();
-                               console.log(answer);
+
+                               if ($(obj2).find('.correct_input_answer').is(':checked')){
+                                   arr_answer.push(answer+'|true');
+                               } else {
+                                   arr_answer.push(answer+'|false');
+                               }
+
                            }
                        });
-
+                       arr_all.push(question,arr_answer);
                    }
                });
-
+               ajax_test(arr_all);
            }
+
+
+
+        function ajax_test(mass_test){
+            const jsonString = JSON.stringify([mass_test]);
+
+            $.ajaxSetup({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $.ajax({
+               url: '{{route('admin.test.store')}}',
+                method:'post',
+                dataType:'json',
+                data:{data:jsonString, id:'{{$id_them}}'},
+                success:function (data){
+                   if(data['info']){
+                       alert(data['info']);
+                   }
+                }
+            });
+
+        }
+
+
+
 
     </script>
 
