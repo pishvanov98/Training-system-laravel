@@ -33,9 +33,6 @@
                     <li>
                         <a href="{{ route('admin.test') }}"> Тесты тем </a>
                     </li>
-                    <li>
-                        <a href="#"> Практика тем </a>
-                    </li>
                     <li >
                         <a href="#"> Ученики</a>
                     </li>

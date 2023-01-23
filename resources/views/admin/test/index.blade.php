@@ -20,6 +20,28 @@
             </form>
         @endif
     </div>
+
+
+        @if($tests)
+            <div class="del_test">
+                <h2>Удаление тестов</h2>
+                <div class="wrapper_block_test">
+                <form method="post" action="{{route('admin.test.delete')}}">
+                    @csrf
+                    @method('delete')
+                    <select class="form-select " name="test" id="exampleInputTest" aria-label="Default select example">
+                        <option value="">Выберите тему</option>
+                        @foreach($tests as $test)
+                            <option value="{{$test->id}}" > {{$test->id_tem}} </option>
+                        @endforeach
+                    </select>
+                    <button class="btn btn-secondary" type="submit">Выбрать</button>
+                </form>
+                </div>
+
+            </div>
+        @endif
+
     </div>
 
 @endsection

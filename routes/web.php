@@ -40,6 +40,7 @@ Route::get('/login', 'AuthorizationController@index');
             Route::get('/test', 'TestThemeController@index')->name('admin.test');
             Route::get('/test/create', 'TestThemeController@create')->name('admin.test.create');
             Route::post('/test', 'TestThemeController@store')->name('admin.test.store');
+            Route::delete('/test', 'TestThemeController@destroy')->name('admin.test.delete');//метод удаления темы, в форме идет отправка
         });
     });
 

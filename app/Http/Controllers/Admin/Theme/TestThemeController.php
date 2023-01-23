@@ -14,10 +14,15 @@ class TestThemeController extends Controller
 
         $themes = AdminTheme::all();
 
+        $tests = AdminTest::all();
+
         if (count($themes) == 0){
             $themes = false;
         }
-        return view('admin.test.index', compact('themes'));
+        if (count($tests) == 0){
+            $tests = false;
+        }
+        return view('admin.test.index', compact('themes','tests'));
 
     }
 
@@ -37,14 +42,27 @@ class TestThemeController extends Controller
             $mass_test=$_POST['data'];
             $id_tem=$_POST['id'];
 
-            AdminTest::create([
-                'id_tem' => $id_tem,
-                'test_info' => $mass_test
-            ]);
+            AdminTest::updateOrCreate([  //проверка если тема существует уже в таблице, обновляем иначе создаем
+                'id_tem' => $id_tem],
+                ['id_tem' => $id_tem,
+                'test_info' => $mass_test]);
             return response()->json(['info'=>'Тест успешно добавлен']);
         }
 
         return response()->json(['info'=>'Ошибка']);
+
+
+    }
+
+
+    public function destroy(){
+
+        if(!empty($_POST['test'])){
+            $id=(int)$_POST['test'];
+            $test= AdminTest::findOrFail($id);//получили по id данные колонки
+            $test->delete();//удалил колонку
+            return redirect()->route('admin.test');
+        }
 
 
     }
