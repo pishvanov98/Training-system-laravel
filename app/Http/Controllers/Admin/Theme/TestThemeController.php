@@ -41,13 +41,13 @@ class TestThemeController extends Controller
         if(!empty($_POST['data']) && !empty($_POST['id'])){
             $mass_test=$_POST['data'];
             $id_tem=$_POST['id'];
-            $SelectTem= AdminTheme::findOrFail([$id_tem]);
+            $SelectTem= AdminTheme::findOrFail($id_tem);
             $SelectTemMass= $SelectTem->toArray();
             AdminTest::updateOrCreate([  //проверка если тема существует уже в таблице, обновляем иначе создаем
                 'id_tem' => $id_tem],
                 ['id_tem' => $id_tem,
                 'test_info' => $mass_test,
-                'name_tem' => $SelectTemMass[0]['name_theme']]);
+                'name_tem' => $SelectTemMass['name_theme']]);
             return response()->json(['info'=>'Тест успешно добавлен']);
         }
 

@@ -32,6 +32,10 @@ Route::get('/login', 'AuthorizationController@index');
             Route::post('/image/upload', 'ImageController@upload')->name('admin.image.upload');
             Route::get('/image', 'ImageController@index')->name('admin.image');
 
+
+            Route::delete('/image/destroy', 'ImageController@destroy')->name('admin.image.delete');//test
+
+
             Route::get('/category', 'CategoryThemeController@index')->name('admin.category');
             Route::delete('/category/{item}', 'CategoryThemeController@destroy')->name('admin.category.delete');//метод удаления
             Route::get('/category/create', 'CategoryThemeController@create')->name('admin.category.create');//страница с формой создания

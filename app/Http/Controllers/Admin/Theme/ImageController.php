@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\Theme;
 
 use App\Http\Controllers\Controller;
 use App\Models\AdminCreateImage;
+use Faker\Core\File;
 use Illuminate\Http\Request;
 use function redirect;
 
@@ -23,7 +24,29 @@ class ImageController extends Controller
     }
 
     public function index(){
-        return view('admin.image.index');
+
+       $images= AdminCreateImage::all();
+
+       if(count($images) == 0){
+           $images = false;
+       }
+
+        return view('admin.image.index', compact('images'));
+    }
+
+
+    public function destroy(){
+
+            if($_POST['image']){
+                $id=(int)$_POST['image'];
+                $image= AdminCreateImage::findOrFail($id);//получили по id данные колонки
+                $image_arr= $image->toArray();
+                if(\File::exists(public_path('img/'.$image_arr['image_to_server']))){
+                    \File::delete(public_path('img/'.$image_arr['image_to_server']));
+                }
+                $image->delete();//удалил колонку
+            }
+        return redirect()->route('admin.image');
     }
 
 }
