@@ -16,6 +16,7 @@ class CreateTestToTemTable extends Migration
         Schema::create('test', function (Blueprint $table) {
             $table->id();
             $table->integer('id_tem');
+            $table->text('name_tem');
             $table->text('test_info');
             $table->timestamps();
             $table->softDeletes();

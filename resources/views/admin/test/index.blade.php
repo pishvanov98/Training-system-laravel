@@ -32,7 +32,7 @@
                     <select class="form-select " name="test" id="exampleInputTest" aria-label="Default select example">
                         <option value="">Выберите тему</option>
                         @foreach($tests as $test)
-                            <option value="{{$test->id}}" > {{$test->id_tem}} </option>
+                            <option value="{{$test->id}}" > {{$test->name_tem}} </option>
                         @endforeach
                     </select>
                     <button class="btn btn-secondary" type="submit">Выбрать</button>

@@ -2,7 +2,6 @@
 @section('content')
     <div class="main_content_admin">
 
-        <p> {{ $id_them }}</p>
         <div class="block_test_wrapper">
 
 
