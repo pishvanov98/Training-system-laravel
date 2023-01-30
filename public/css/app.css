@@ -11011,3 +11011,27 @@ textarea.form-control-lg {
 .wrapper_content_admin .del_test {
   margin-top: 10px;
 }
+
+.dropdown {
+  display: inline-block;
+}
+
+.dropdown .popup {
+  position: absolute;
+  background: #fff;
+  padding: 15px;
+  margin-top: 10px;
+  margin-left: -999em;
+  opacity: 0;
+  min-width: 180px;
+  max-width: 300px;
+  box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: opacity 0.8s ease;
+}
+
+.dropdown.active .popup {
+  opacity: 1;
+  margin-left: 0;
+  z-index: 9999;
+}

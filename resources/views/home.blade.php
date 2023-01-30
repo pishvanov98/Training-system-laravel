@@ -1,19 +1,20 @@
-@extends('layouts.main')
+@extends('layouts.app')
 @section('content')
 
-    @guest
+    @if($themes)
 
-        <a href="{{ route('login')  }}">Вход</a>
-    @else
-        <a  href="{{ route('logout') }}"
-           onclick="event.preventDefault();
-           document.getElementById('logout-form').submit();">
-            Выйти
-        </a>
+        @foreach($themes as $them )
 
-        <form id="logout-form" style="display: none" action="{{ route('logout') }}" method="POST" >
-            @csrf
-        </form>
-    @endguest
+            <div class="card" style="width: 18rem;">
+                <img src="..." class="card-img-top" alt="...">
+                <div class="card-body">
+                    {{$them->small_description}}
+                </div>
+            </div>
+
+        @endforeach
+
+    @endif
+
 
 @endsection
