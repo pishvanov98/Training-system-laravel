@@ -12,7 +12,12 @@ class HomeController extends Controller
 
        $themes= AdminTheme::all();
 
-        return view('home', compact('themes'));
+
+       $breadcrumb=[
+         'Главная'=>route('home')
+       ];
+
+        return view('home', compact('themes','breadcrumb'));
     }
 
     public function show ($id){

@@ -74,14 +74,34 @@
                 </div>
             </div>
         </nav>
+        @if($breadcrumb)
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+        @foreach($breadcrumb as $key => $breadcr)
 
+
+                        @php if($breadcr == end($breadcrumb)) {
+                        @endphp
+                        <li class="breadcrumb-item active" aria-current="page">{{$key}}</li>
+                        @php
+                        }else{
+                        @endphp
+                        <li class="breadcrumb-item " ><a href="{{$breadcr}}">{{$key}}</a></li>
+                        @php
+
+                        } @endphp
+            @endforeach
+                </ol>
+            </nav>
+        @endif
         <main class="py-4">
+
             @yield('content')
         </main>
     </div>
 </body>
 <footer>
-    <div class="b-example-divider"></div>
+
     <div class="container">
             <ul class="nav justify-content-center border-bottom pb-3 mb-3">
                 <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
