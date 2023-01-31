@@ -11028,7 +11028,7 @@ textarea.form-control-lg {
   border-radius: 10px;
   transition: opacity 0.8s ease;
 }
-.dropdown.active.popup {
+.dropdown.active .popup {
   opacity: 1;
   margin-left: 0;
   z-index: 9999;
@@ -11043,7 +11043,44 @@ textarea.form-control-lg {
 .wrapper_card .card {
   margin: 5px;
   text-decoration: none;
+  width: 20rem;
 }
 .wrapper_card .card .card-body {
   color: black;
+}
+
+.wrapper_them_content .top_block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.wrapper_them_content .top_block h1, .wrapper_them_content .top_block .h1 {
+  margin-bottom: 15px;
+}
+.wrapper_them_content .top_block img {
+  width: 600px;
+  height: 300px;
+}
+.wrapper_them_content .content_block {
+  width: 80%;
+  margin: 20px auto;
+}
+.wrapper_them_content .content_block p {
+  font-size: 16px;
+}
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+}
+footer .b-example-divider {
+  height: 3rem;
+  background-color: rgba(0, 0, 0, 0.1);
+  border: solid rgba(0, 0, 0, 0.15);
+  border-width: 1px 0;
+  box-shadow: inset 0 0.5em 1.5em rgba(0, 0, 0, 0.1), inset 0 0.125em 0.5em rgba(0, 0, 0, 0.15);
+}
+footer .pb-3 {
+  padding-top: 1rem !important;
 }

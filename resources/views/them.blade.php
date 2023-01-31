@@ -1,10 +1,22 @@
 @extends('layouts.app')
 @section('content')
 
-    @if($them)
 
-        <img src="{{asset('img/'.$them->image)}}">
+        <div class="wrapper_them_content">
 
-    @endif
+            <div class="top_block">
+                <h1>{{$them->name_theme}}</h1>
+                <img src="{{asset('img/'.$them->image)}}">
+            </div>
+            <div class="content_block">
+                <p>
+                {{$them->full_description}}
+                </p>
+            </div>
+
+        </div>
+
+
+
 
 @endsection
