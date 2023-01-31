@@ -14,4 +14,13 @@ class HomeController extends Controller
 
         return view('home', compact('themes'));
     }
+
+    public function show ($id){
+
+       $them= AdminTheme::findOrFail($id);
+
+       return view('them', compact('them'));
+
+    }
+
 }

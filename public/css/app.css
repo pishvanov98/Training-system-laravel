@@ -11015,7 +11015,6 @@ textarea.form-control-lg {
 .dropdown {
   display: inline-block;
 }
-
 .dropdown .popup {
   position: absolute;
   background: #fff;
@@ -11029,9 +11028,22 @@ textarea.form-control-lg {
   border-radius: 10px;
   transition: opacity 0.8s ease;
 }
-
-.dropdown.active .popup {
+.dropdown.active.popup {
   opacity: 1;
   margin-left: 0;
   z-index: 9999;
+}
+
+.wrapper_card {
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.wrapper_card .card {
+  margin: 5px;
+  text-decoration: none;
+}
+.wrapper_card .card .card-body {
+  color: black;
 }
