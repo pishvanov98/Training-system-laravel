@@ -16,7 +16,7 @@
 
             <div class="button_group">
                 <a href="#">Следующая тема</a>
-                <a href="#">Тестирование</a>
+                <a href="{{route('test.show',$them->id)}}">Тестирование</a>
             </div>
 
         </div>

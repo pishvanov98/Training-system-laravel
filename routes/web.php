@@ -16,6 +16,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/theme/{item}', 'HomeController@show')->name('theme.show');
 
+Route::get('/test/{item}', 'TestController@show')->name('test.show');
 
 
 

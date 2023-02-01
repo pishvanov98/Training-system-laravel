@@ -118,7 +118,7 @@ footer{
         .card{
             margin: 5px;
             text-decoration: none;
-            width: 29rem !important;
+            width: calc(33.3% - 10px) !important;
             .card-body{
                 color: black;
                 font-size: 24px;
