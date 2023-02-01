@@ -14,9 +14,12 @@
                 </p>
             </div>
 
+            <div class="button_group">
+                <a href="#">Следующая тема</a>
+                <a href="#">Тестирование</a>
+            </div>
+
         </div>
-
-
 
 
 @endsection

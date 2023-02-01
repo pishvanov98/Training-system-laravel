@@ -8,7 +8,7 @@
             <a class="card" href="{{ route('theme.show',$them->id) }}" style="width: 18rem;">
                 <img src=" {{ asset('img/'.$them->image) }} " class="card-img-top" alt="...">
                 <div class="card-body">
-                    {{$them->small_description}}
+                    {{$them->name_theme}}
                 </div>
             </a>
 

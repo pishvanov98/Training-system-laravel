@@ -12,6 +12,7 @@
 
 .dropdown {
     display: inline-block;
+    font-size: 18px;
     .popup { position: absolute; background: #fff; padding: 15px; margin-top: 10px; margin-left: -999em; opacity: 0; min-width: 180px; max-width: 300px; box-shadow: 0 3px 7px 0 rgba(0, 0, 0, 0.2);
         -webkit-border-radius: 2px;
         -moz-border-radius: 2px;
@@ -27,7 +28,13 @@
             z-index: 9999;
         }
     }
+    span{
+        cursor: pointer;
+    }
 
+}
+.navbar-brand{
+    font-size: 20px;
 }
 
 .wrapper_them_content{
@@ -47,14 +54,29 @@
         width: 80%;
         margin: 20px auto;
         p{
-            font-size: 16px;
+            font-size: 18px;
             white-space: pre-wrap;
         }
     }
+
+    .button_group{
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    margin: auto;
+a{
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    padding: 10px;
+    border: 1px solid black;
+}
+    }
+
 }
 
 footer{
-    position: absolute;
+    position: relative;
     bottom: 0;
     width: 100%;
 .container{
@@ -80,12 +102,13 @@ footer{
     width: 80%;
     margin: auto;
     padding: 10px 15px;
-    height: calc(100vh - 180px);
+    min-height: calc(100vh - 141px);
     --bs-bg-opacity: 1;
     background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
     .breadcrumb{
         width: 100%;
         margin: 10px auto;
+        font-size: 20px;
     }
     .wrapper_card{
         width: 100%;
@@ -95,9 +118,10 @@ footer{
         .card{
             margin: 5px;
             text-decoration: none;
-            width: 20rem;
+            width: 29rem !important;
             .card-body{
                 color: black;
+                font-size: 24px;
             }
         }
     }

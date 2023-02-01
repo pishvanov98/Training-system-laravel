@@ -11014,6 +11014,7 @@ textarea.form-control-lg {
 
 .dropdown {
   display: inline-block;
+  font-size: 18px;
 }
 .dropdown .popup {
   position: absolute;
@@ -11033,6 +11034,13 @@ textarea.form-control-lg {
   margin-left: 0;
   z-index: 9999;
 }
+.dropdown span {
+  cursor: pointer;
+}
+
+.navbar-brand {
+  font-size: 20px;
+}
 
 .wrapper_them_content .top_block {
   display: flex;
@@ -11051,12 +11059,25 @@ textarea.form-control-lg {
   margin: 20px auto;
 }
 .wrapper_them_content .content_block p {
-  font-size: 16px;
+  font-size: 18px;
   white-space: pre-wrap;
+}
+.wrapper_them_content .button_group {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+  margin: auto;
+}
+.wrapper_them_content .button_group a {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  padding: 10px;
+  border: 1px solid black;
 }
 
 footer {
-  position: absolute;
+  position: relative;
   bottom: 0;
   width: 100%;
 }
@@ -11082,13 +11103,14 @@ footer .pb-3 {
   width: 80%;
   margin: auto;
   padding: 10px 15px;
-  height: calc(100vh - 180px);
+  min-height: calc(100vh - 141px);
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-white-rgb), var(--bs-bg-opacity)) !important;
 }
 .Wraper_content_block .breadcrumb {
   width: 100%;
   margin: 10px auto;
+  font-size: 20px;
 }
 .Wraper_content_block .wrapper_card {
   width: 100%;
@@ -11099,8 +11121,9 @@ footer .pb-3 {
 .Wraper_content_block .wrapper_card .card {
   margin: 5px;
   text-decoration: none;
-  width: 20rem;
+  width: 29rem !important;
 }
 .Wraper_content_block .wrapper_card .card .card-body {
   color: black;
+  font-size: 24px;
 }

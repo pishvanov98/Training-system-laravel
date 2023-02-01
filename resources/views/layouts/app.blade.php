@@ -54,9 +54,9 @@
                             @endif
                         @else
                             <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" >
+                                <span id="navbarDropdown" class="nav-link dropdown-toggle"  >
                                     {{ Auth::user()->name }}
-                                </a>
+                                </span>
 
                                 <div class="popup">
                                     <a class="dropdown-item" href="{{ route('logout') }}"
