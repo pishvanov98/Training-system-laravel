@@ -20,6 +20,7 @@
     <script src="{{asset('js/jquery-3.6.3.min.js')}}"></script>
 </head>
 <body>
+<header>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
@@ -74,45 +75,48 @@
                 </div>
             </div>
         </nav>
-        @if($breadcrumb)
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-        @foreach($breadcrumb as $key => $breadcr)
+    </div>
+</header>
+<div class="Wraper_content_block">
+    @if(!empty($breadcrumb))
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                @foreach($breadcrumb as $key => $breadcr)
 
 
-                        @php if($breadcr == end($breadcrumb)) {
-                        @endphp
-                        <li class="breadcrumb-item active" aria-current="page">{{$key}}</li>
-                        @php
+                    @php if($breadcr == end($breadcrumb)) {
+                    @endphp
+                    <li class="breadcrumb-item active" aria-current="page">{{$key}}</li>
+                    @php
                         }else{
-                        @endphp
-                        <li class="breadcrumb-item " ><a href="{{$breadcr}}">{{$key}}</a></li>
-                        @php
+                    @endphp
+                    <li class="breadcrumb-item " ><a href="{{$breadcr}}">{{$key}}</a></li>
+                    @php
 
                         } @endphp
-            @endforeach
-                </ol>
-            </nav>
-        @endif
-        <main class="py-4">
+                @endforeach
+            </ol>
+        </nav>
+    @endif
+    <main class="py-4">
 
-            @yield('content')
-        </main>
-    </div>
+        @yield('content')
+    </main>
+</div>
+    <footer>
+
+        <div class="container">
+{{--            <ul class="nav justify-content-center border-bottom pb-3 mb-3">--}}
+{{--                <li class="nav-item"><a href="{{route('home')}}" class="nav-link px-2 text-muted">Главная</a></li>--}}
+{{--                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>--}}
+{{--                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>--}}
+{{--                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>--}}
+{{--                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>--}}
+{{--            </ul>--}}
+            <p class="text-center text-muted">© 2023 Nikita Pishvanov</p>
+        </div>
+    </footer>
 </body>
-<footer>
-
-    <div class="container">
-            <ul class="nav justify-content-center border-bottom pb-3 mb-3">
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-                <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">About</a></li>
-            </ul>
-            <p class="text-center text-muted">© 2023 Company, Inc</p>
-    </div>
-</footer>
 
 <script>
 

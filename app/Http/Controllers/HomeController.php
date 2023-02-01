@@ -24,7 +24,13 @@ class HomeController extends Controller
 
        $them= AdminTheme::findOrFail($id);
 
-       return view('them', compact('them'));
+        $breadcrumb=[
+            'Главная'=>route('home'),
+            $them->name_theme=>route('theme.show',$id)
+        ];
+
+
+       return view('them', compact('them','breadcrumb'));
 
     }
 
