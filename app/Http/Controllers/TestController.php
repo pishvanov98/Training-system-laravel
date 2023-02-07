@@ -35,16 +35,19 @@ class TestController extends Controller
 
 
             if (!str_contains($item, '|')) {
-                echo 'true';
                 $quantity=$item;
                 continue;
             }
+
+
             $mass_test[$quantity][]=$item;
 
         }
 
 
-        return view('test', compact('json_decode_test') );
+
+
+        return view('test', compact('mass_test') );
 
     }
 }

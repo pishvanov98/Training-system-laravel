@@ -1,12 +1,15 @@
 @extends('layouts.app')
 @section('content')
 
-@if($json_decode_test)
+@if($mass_test)
 
+@foreach($mass_test as $key=> $item_mass)
 
-@foreach($json_decode_test as $item)
+    {{$key}}
 
-    {{$item['name_tem']}}
+    @foreach($item_mass as $item)
+        {{$item}}
+    @endforeach
 
 @endforeach
 
