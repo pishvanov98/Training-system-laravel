@@ -26,7 +26,7 @@ class TestController extends Controller
         $json_decode_test[0]['test_info'] = str_replace("[", "", $json_decode_test[0]['test_info']);
         $json_decode_test[0]['test_info'] = str_replace('"', "", $json_decode_test[0]['test_info']);
 
-        // var_dump($json_decode_test[0]);
+
 
 
         $mass_test=array();
@@ -37,17 +37,19 @@ class TestController extends Controller
             if (!str_contains($item, '|')) {
                 $quantity=$item;
                 continue;
+            }else{
+                $item=explode('|', $item);
             }
 
 
             $mass_test[$quantity][]=$item;
 
         }
+        $count_mass_test=count($mass_test);
 
 
 
-
-        return view('test', compact('mass_test') );
+        return view('test', compact('mass_test','count_mass_test') );
 
     }
 }

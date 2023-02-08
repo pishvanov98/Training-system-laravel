@@ -11038,6 +11038,10 @@ textarea.form-control-lg {
   cursor: pointer;
 }
 
+#navbarSupportedContent {
+  font-size: 16px;
+}
+
 .navbar-brand {
   font-size: 20px;
 }
@@ -11126,4 +11130,19 @@ footer .pb-3 {
 .Wraper_content_block .wrapper_card .card .card-body {
   color: black;
   font-size: 24px;
+}
+.Wraper_content_block .wrapper_test_item {
+  border: 1px solid;
+  padding: 10px;
+}
+.Wraper_content_block .wrapper_test_item .num_test {
+  font-size: 18px;
+}
+.Wraper_content_block .wrapper_test_item .text_quantity {
+  font-size: 20px;
+}
+.Wraper_content_block .wrapper_test_item .quantity_test {
+  display: flex;
+  flex-direction: column;
+  font-size: 18px;
 }
