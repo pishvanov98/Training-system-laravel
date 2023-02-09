@@ -11131,18 +11131,34 @@ footer .pb-3 {
   color: black;
   font-size: 24px;
 }
-.Wraper_content_block .wrapper_test_item {
+.Wraper_content_block .wrapper_test_slider {
+  width: 95%;
+  margin: auto;
+}
+.Wraper_content_block .wrapper_test_slider .wrapper_test_item {
   border: 1px solid;
   padding: 10px;
+  margin-right: 10px;
 }
-.Wraper_content_block .wrapper_test_item .num_test {
+.Wraper_content_block .wrapper_test_slider .wrapper_test_item .num_test {
   font-size: 18px;
 }
-.Wraper_content_block .wrapper_test_item .text_quantity {
+.Wraper_content_block .wrapper_test_slider .wrapper_test_item .text_quantity {
   font-size: 20px;
 }
-.Wraper_content_block .wrapper_test_item .quantity_test {
+.Wraper_content_block .wrapper_test_slider .wrapper_test_item .quantity_test {
   display: flex;
   flex-direction: column;
   font-size: 18px;
+}
+.Wraper_content_block .wrapper_test_slider .button_hide_test {
+  display: flex;
+  position: relative;
+  top: -195px;
+  z-index: 5;
+}
+.Wraper_content_block .wrapper_test_slider .button_hide_test .go-prev, .Wraper_content_block .wrapper_test_slider .button_hide_test .go-next {
+  width: 50%;
+  background-color: aquamarine;
+  margin-right: 10px;
 }
