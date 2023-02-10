@@ -152,12 +152,19 @@ footer{
         .button_hide_test{
             display: flex;
             position: relative;
-            top: -195px;
-            z-index: 5;
+            top: -197px;
+            justify-content: flex-end;
             .go-prev, .go-next{
-                width: 50%;
-                background-color: aquamarine;
+                display: none;
+                width: calc(50% - 10px);
                 margin-right: 10px;
+                background-color: grey;
+                height: 198px;
+                z-index: 5;
+                opacity: 0.1;
+                &.active{
+                    display: block;
+                }
             }
         }
     }

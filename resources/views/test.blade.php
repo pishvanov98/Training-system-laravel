@@ -25,19 +25,18 @@
                @endforeach
            </div>
            <div class="button_hide_test">
-               <div class="go-prev">назад</div>
-               <div class="go-next">вперед</div>
+{{--               <div class="go-prev">назад</div>--}}
+               <div  class="go-next active"></div>
            </div>
 
        </div>
 
         <script>
+            var owl = $('.owl-carousel');
             $(document).ready(function() {
 
-                var owl = $('.owl-carousel');
-
                 owl.owlCarousel({
-                    loop: true,
+                    loop: false,
                     // margin: 10,
                     nav: false,
                     dots: false,
@@ -48,6 +47,7 @@
                     }
                 });
 
+
                 $('.go-prev').click(function() {
                     owl.trigger('prev.owl.carousel');
                 });
@@ -55,7 +55,38 @@
                 $('.go-next').click(function() {
                     owl.trigger('next.owl.carousel');
                 });
+
+
+
+                $('.owl-carousel').on('changed.owl.carousel', function(e) {
+
+                    var items     = e.item.count;     // Number of items
+                    var item      = e.item.index;     // Position of the current item
+                    var size      = e.page.size;      // Number of items per page
+
+                    if (item < items) {
+
+
+                        if(!$('.go-next').hasClass('active')){
+                            $('.go-next').addClass('active');
+                        }
+
+
+                    }
+
+                    if ((items - item) === size) {
+
+                        if($('.go-next').hasClass('active')){
+                            $('.go-next').removeClass('active');
+                        }
+
+                    }
+
+                });
+
+
             });
+
 
 
         </script>
