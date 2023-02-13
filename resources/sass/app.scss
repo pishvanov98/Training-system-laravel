@@ -130,12 +130,11 @@ footer{
     }
 
     .wrapper_test_slider{
-        width: 95%;
+        width: 60%;
         margin: auto;
         .wrapper_test_item{
             border: 1px solid;
             padding: 10px;
-            margin-right: 10px;
             .num_test{
                 font-size: 18px;
             }
@@ -148,24 +147,6 @@ footer{
                 font-size: 18px;
             }
 
-        }
-        .button_hide_test{
-            display: flex;
-            position: relative;
-            top: -197px;
-            justify-content: flex-end;
-            .go-prev, .go-next{
-                display: none;
-                width: calc(50% - 10px);
-                margin-right: 10px;
-                background-color: grey;
-                height: 198px;
-                z-index: 5;
-                opacity: 0.1;
-                &.active{
-                    display: block;
-                }
-            }
         }
     }
 

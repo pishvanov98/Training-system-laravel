@@ -24,10 +24,7 @@
                    </div>
                @endforeach
            </div>
-           <div class="button_hide_test">
-{{--               <div class="go-prev">назад</div>--}}
-               <div  class="go-next active"></div>
-           </div>
+
 
        </div>
 
@@ -37,52 +34,49 @@
 
                 owl.owlCarousel({
                     loop: false,
-                    // margin: 10,
-                    nav: false,
+                    margin: 10,
+                    nav: true,
+                    // navText: ["<<",">>"],
                     dots: false,
-                    responsive: {
-                        0: {
-                            items: 2
-                        }
-                    }
+                    items:1,
                 });
 
 
-                $('.go-prev').click(function() {
-                    owl.trigger('prev.owl.carousel');
-                });
-
-                $('.go-next').click(function() {
-                    owl.trigger('next.owl.carousel');
-                });
-
-
-
-                $('.owl-carousel').on('changed.owl.carousel', function(e) {
-
-                    var items     = e.item.count;     // Number of items
-                    var item      = e.item.index;     // Position of the current item
-                    var size      = e.page.size;      // Number of items per page
-
-                    if (item < items) {
+                // $('.go-prev').click(function() {
+                //     owl.trigger('prev.owl.carousel');
+                // });
+                //
+                // $('.go-next').click(function() {
+                //     owl.trigger('next.owl.carousel');
+                // });
 
 
-                        if(!$('.go-next').hasClass('active')){
-                            $('.go-next').addClass('active');
-                        }
 
-
-                    }
-
-                    if ((items - item) === size) {
-
-                        if($('.go-next').hasClass('active')){
-                            $('.go-next').removeClass('active');
-                        }
-
-                    }
-
-                });
+                // $('.owl-carousel').on('changed.owl.carousel', function(e) {
+                //
+                //     var items     = e.item.count;     // Number of items
+                //     var item      = e.item.index;     // Position of the current item
+                //     var size      = e.page.size;      // Number of items per page
+                //
+                //     if (item < items) {
+                //
+                //
+                //         if(!$('.go-next').hasClass('active')){
+                //             $('.go-next').addClass('active');
+                //         }
+                //
+                //
+                //     }
+                //
+                //     if ((items - item) === size) {
+                //
+                //         if($('.go-next').hasClass('active')){
+                //             $('.go-next').removeClass('active');
+                //         }
+                //
+                //     }
+                //
+                // });
 
 
             });

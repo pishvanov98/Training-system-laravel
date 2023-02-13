@@ -11132,13 +11132,12 @@ footer .pb-3 {
   font-size: 24px;
 }
 .Wraper_content_block .wrapper_test_slider {
-  width: 95%;
+  width: 60%;
   margin: auto;
 }
 .Wraper_content_block .wrapper_test_slider .wrapper_test_item {
   border: 1px solid;
   padding: 10px;
-  margin-right: 10px;
 }
 .Wraper_content_block .wrapper_test_slider .wrapper_test_item .num_test {
   font-size: 18px;
@@ -11150,22 +11149,4 @@ footer .pb-3 {
   display: flex;
   flex-direction: column;
   font-size: 18px;
-}
-.Wraper_content_block .wrapper_test_slider .button_hide_test {
-  display: flex;
-  position: relative;
-  top: -197px;
-  justify-content: flex-end;
-}
-.Wraper_content_block .wrapper_test_slider .button_hide_test .go-prev, .Wraper_content_block .wrapper_test_slider .button_hide_test .go-next {
-  display: none;
-  width: calc(50% - 10px);
-  margin-right: 10px;
-  background-color: grey;
-  height: 198px;
-  z-index: 5;
-  opacity: 0.1;
-}
-.Wraper_content_block .wrapper_test_slider .button_hide_test .go-prev.active, .Wraper_content_block .wrapper_test_slider .button_hide_test .go-next.active {
-  display: block;
 }
