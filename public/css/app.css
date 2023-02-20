@@ -11137,7 +11137,8 @@ footer .pb-3 {
 }
 .Wraper_content_block .wrapper_test_slider .wrapper_test_item {
   border: 1px solid;
-  padding: 10px;
+  padding: 15px;
+  min-height: 400px;
 }
 .Wraper_content_block .wrapper_test_slider .wrapper_test_item .num_test {
   font-size: 18px;
@@ -11149,4 +11150,47 @@ footer .pb-3 {
   display: flex;
   flex-direction: column;
   font-size: 18px;
+}
+.Wraper_content_block .wrapper_test_slider .wrapper_test_item .quantity_test p {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+}
+.Wraper_content_block .wrapper_test_slider .wrapper_test_item .quantity_test p input {
+  margin-right: 5px;
+}
+.Wraper_content_block .button_hide_test {
+  width: 75%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  top: -240px;
+}
+.Wraper_content_block .button_hide_test .go-prev, .Wraper_content_block .button_hide_test .go-next {
+  padding: 6px 14px;
+  border-radius: 22px;
+  border: 1px solid;
+  font-size: 18px;
+  cursor: pointer;
+}
+.Wraper_content_block .wrapper_button_succes_test {
+  display: flex;
+  justify-content: center;
+}
+.Wraper_content_block .wrapper_button_succes_test .button_succes_test {
+  text-decoration: none;
+  color: black;
+  font-size: 16px;
+  padding: 10px 20px;
+  border: 1px solid black;
+  background: #fff;
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+.Wraper_content_block .wrapper_button_succes_test .button_succes_test.active {
+  opacity: 1;
+  cursor: pointer;
+  pointer-events: auto;
 }

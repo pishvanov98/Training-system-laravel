@@ -13,11 +13,11 @@
                        <div class="quantity_test">
                            @foreach($item_mass as $key=> $item)
 
-                               <div>
+                               <p>
                                    <input type="radio" id="contactChoice{{$key}}"
-                                          name="test{{$i}}" value="{{$item[1]}}">
+                                          name="test{{$i}}" >
                                    <label for="contactChoice{{$key}}">{{$item[0]}}</label>
-                               </div>
+                               </p>
                            @endforeach
                        </div>
                        @php $i++; @endphp
@@ -25,8 +25,17 @@
                @endforeach
            </div>
 
-
        </div>
+
+        <div class="button_hide_test">
+            <div class="go-prev"><</div>
+            <div  class="go-next">></div>
+        </div>
+        <div class="wrapper_button_succes_test">
+
+            <button type="button" class=" button_succes_test " onclick="check_status_test();" >Узнать результаты</button>
+
+        </div>
 
         <script>
             var owl = $('.owl-carousel');
@@ -35,51 +44,109 @@
                 owl.owlCarousel({
                     loop: false,
                     margin: 10,
-                    nav: true,
-                    // navText: ["<<",">>"],
                     dots: false,
                     items:1,
                 });
 
 
-                // $('.go-prev').click(function() {
-                //     owl.trigger('prev.owl.carousel');
-                // });
-                //
-                // $('.go-next').click(function() {
-                //     owl.trigger('next.owl.carousel');
-                // });
+                $('.go-prev').click(function() {
+                    owl.trigger('prev.owl.carousel');
+                });
+
+                $('.go-next').click(function() {
+                    owl.trigger('next.owl.carousel');
+                });
 
 
 
-                // $('.owl-carousel').on('changed.owl.carousel', function(e) {
-                //
-                //     var items     = e.item.count;     // Number of items
-                //     var item      = e.item.index;     // Position of the current item
-                //     var size      = e.page.size;      // Number of items per page
-                //
-                //     if (item < items) {
-                //
-                //
-                //         if(!$('.go-next').hasClass('active')){
-                //             $('.go-next').addClass('active');
-                //         }
-                //
-                //
-                //     }
-                //
-                //     if ((items - item) === size) {
-                //
-                //         if($('.go-next').hasClass('active')){
-                //             $('.go-next').removeClass('active');
-                //         }
-                //
-                //     }
-                //
-                // });
+                $('.owl-carousel').on('changed.owl.carousel', function(e) {
+
+
+
+                    // var items     = e.item.count;     // Number of items
+                    // var item      = e.item.index;     // Position of the current item
+                    // var size      = e.page.size;      // Number of items per page
+
+                    // if (item < items) {
+                    //
+                    //
+                    //     console.log('Start');
+                    //
+                    //
+                    // }
+                    //
+                    // if ((items - item) === size) {
+                    //
+                    //  console.log('the end');
+                    //
+                    // }
+
+                });
 
 
             });
+
+
+            $('.quantity_test p input ').on('click', function (){
+
+                var count_test_all= {{$count_mass_test}};
+                var count_test_active= 0;
+                $( ".owl-item" ).each(function( index ) {
+                    $( this ).find('p input').each(function ( index2 ){
+                        if ($(this).is(':checked')){
+                            count_test_active++;
+                            return false;
+                        }
+                    })
+                });
+
+                if(count_test_active == count_test_all){
+                    console.log('Все заполнено');
+                    if(!$('.button_succes_test').hasClass('active')){
+                        $('.button_succes_test').addClass('active');
+                    }
+                }
+
+            });
+
+
+            function check_status_test (){
+
+                var mass_test_all= new Array();
+
+
+                $( ".owl-item" ).each(function( index ) {
+                    var num_test_block = index+1;
+                    $( this ).find('.quantity_test p').each(function ( index2 ){
+                        var num_test = index2+1;
+                        if ($(this).find('input').is(':checked')){
+                            mass_test_all.push([num_test_block, num_test]);
+                            return false;
+                        }
+                    })
+
+                });
+            console.log(mass_test_all);
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+            $.ajax({
+                url:'{{route('test.store')}}',
+                method:'post',
+                dataType:'json',
+                data:{data : mass_test_all, id_test : {{$id}}},
+                success: function(data){
+                    alert(data);
+                }
+
+            })
+
+
+            }
 
 
 

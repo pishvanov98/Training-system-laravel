@@ -49,7 +49,21 @@ class TestController extends Controller
 
 
 
-        return view('test', compact('mass_test','count_mass_test') );
+        return view('test', compact('mass_test','count_mass_test','id') );
 
     }
+
+    public function store(){
+
+
+
+        var_dump($_POST['data']);
+        var_dump($_POST['id_test']);
+
+        //нужно записать в базу и сделать переадресацию на страницу с результатом
+
+        exit();
+
+    }
+
 }
