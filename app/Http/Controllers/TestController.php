@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\AdminTest;
+use App\Models\AdminTestAnswer;
 use App\Models\AdminTheme;
 use Illuminate\Http\Request;
 
@@ -59,7 +60,14 @@ class TestController extends Controller
 
         var_dump($_POST['data']);
         var_dump($_POST['id_test']);
-
+        $id_test=$_POST['id_test'];
+        $answer_test=json_encode($_POST['data']);
+        echo (auth()->id());
+        AdminTestAnswer::create([
+            'id_user'=>auth()->id(),
+            'id_test'=>$id_test,
+            'answer_test'=>$answer_test,
+        ]);
         //нужно записать в базу и сделать переадресацию на страницу с результатом
 
         exit();
