@@ -138,9 +138,16 @@
                 url:'{{route('test.store')}}',
                 method:'post',
                 dataType:'json',
-                data:{data : mass_test_all, id_test : {{$id}}},
+                data:{data : mass_test_all, id_test_tem : {{$id}}},
                 success: function(data){
-                    alert(data);
+                  if(data == 0){
+                      alert('Авторизуйтесь');
+                  }else if (data == 1){
+                      alert('Вы уже проходили тестирование');
+                  }else{
+                      alert('Успешно');
+                  }
+                    {{--window.location.href = '{{ route('theme.show',$id) }}';--}}
                 }
 
             })

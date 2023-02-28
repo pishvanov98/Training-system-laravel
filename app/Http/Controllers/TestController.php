@@ -56,28 +56,25 @@ class TestController extends Controller
 
     public function store(){
 
-
-
-        var_dump($_POST['data']);
-        var_dump($_POST['id_test']);
-        $id_test=$_POST['id_test'];
+        $id_test_tem=$_POST['id_test_tem'];
         $answer_test=json_encode($_POST['data']);
 
         if(empty(auth()->id())){
-
+                $data= 0;
         }else{
 
+            if (AdminTestAnswer::where('id_tem', '=', $id_test_tem)->count() > 0) {
+                $data= 1;
+            }else{
+                AdminTestAnswer::create([
+                    'id_user'=>auth()->id(),
+                    'id_tem'=>$id_test_tem,
+                    'answer_test'=>$answer_test,
+                ]);
+                $data= 2;
+            }
         }
-
-        echo (auth()->id());
-        AdminTestAnswer::create([
-            'id_user'=>auth()->id(),
-            'id_test'=>$id_test,
-            'answer_test'=>$answer_test,
-        ]);
-        //нужно записать в базу и сделать переадресацию на страницу с результатом
-
-        exit();
+        return response()->json($data);
 
     }
 
