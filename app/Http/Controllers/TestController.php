@@ -62,6 +62,13 @@ class TestController extends Controller
         var_dump($_POST['id_test']);
         $id_test=$_POST['id_test'];
         $answer_test=json_encode($_POST['data']);
+
+        if(empty(auth()->id())){
+
+        }else{
+
+        }
+
         echo (auth()->id());
         AdminTestAnswer::create([
             'id_user'=>auth()->id(),
