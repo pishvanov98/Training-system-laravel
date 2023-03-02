@@ -198,5 +198,11 @@ footer{
             }
         }
     }
+    .modal{
+    background: #00000096;
+        &.show{
+            display: block;
+        }
+}
 
 }

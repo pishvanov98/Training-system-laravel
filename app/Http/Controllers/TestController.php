@@ -50,7 +50,15 @@ class TestController extends Controller
 
 
 
-        return view('test', compact('mass_test','count_mass_test','id') );
+
+        if (AdminTestAnswer::where('id_tem', '=', $id)->count() > 0) {
+            $isset_to_table= true;
+        }else{
+            $isset_to_table = false;
+        }
+
+
+        return view('test', compact('mass_test','count_mass_test','id','isset_to_table') );
 
     }
 
@@ -75,6 +83,16 @@ class TestController extends Controller
             }
         }
         return response()->json($data);
+
+    }
+
+    public function delInfoToTable (){
+
+        $id_test_tem=$_POST['id_test_tem'];
+
+        if(!empty($id_test_tem)){
+            AdminTestAnswer::where('id_tem', '=', $id_test_tem)->delete();
+        }
 
     }
 

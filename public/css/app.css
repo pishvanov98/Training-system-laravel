@@ -11194,3 +11194,9 @@ footer .pb-3 {
   cursor: pointer;
   pointer-events: auto;
 }
+.Wraper_content_block .modal {
+  background: rgba(0, 0, 0, 0.5882352941);
+}
+.Wraper_content_block .modal.show {
+  display: block;
+}

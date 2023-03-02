@@ -36,10 +36,36 @@
             <button type="button" class=" button_succes_test " onclick="check_status_test();" >Узнать результаты</button>
 
         </div>
-
+        <div class="modal fade " id="exampleModalLive" tabindex="-1" aria-labelledby="exampleModalLiveLabel"  aria-modal="true" role="dialog">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLiveLabel">Modal title</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Woo-hoo, you're reading this text in a modal!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary close_modal_button" data-bs-dismiss="modal">Закрыть</button>
+                        <button type="button" class="btn btn-primary action_modal_button"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script>
             var owl = $('.owl-carousel');
             $(document).ready(function() {
+
+
+
+                @php if(!empty($isset_to_table)){ @endphp
+
+                $('.action_modal_button').text('Пройти повторно');
+                $('.action_modal_button').attr('onclick', 'replay()');
+                $('.modal.fade').addClass('show');
+
+                @php }  @endphp
 
                 owl.owlCarousel({
                     loop: false,
@@ -101,7 +127,6 @@
                 });
 
                 if(count_test_active == count_test_all){
-                    console.log('Все заполнено');
                     if(!$('.button_succes_test').hasClass('active')){
                         $('.button_succes_test').addClass('active');
                     }
@@ -109,6 +134,36 @@
 
             });
 
+            $('.close_modal_button').on('click', function (){
+
+                if($('.modal').hasClass('show')){
+                    $('.modal').removeClass('show');
+                }
+
+            });
+
+
+            function login (){
+                window.location.href = '{{ route('login') }}';
+            }
+
+            function replay (){
+
+                $.ajaxSetup({
+                    headers: {
+                        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                    }
+                });
+
+                $.ajax({
+                    url:'{{route('test.delInfo')}}',
+                    method:'post',
+                    dataType:'json',
+                    data:{id_test_tem : {{$id}}}
+                })
+
+                window.location.href = '{{ route('test.show',$id) }}';
+            }
 
             function check_status_test (){
 
@@ -126,7 +181,6 @@
                     })
 
                 });
-            console.log(mass_test_all);
 
                 $.ajaxSetup({
                     headers: {
@@ -141,13 +195,19 @@
                 data:{data : mass_test_all, id_test_tem : {{$id}}},
                 success: function(data){
                   if(data == 0){
-                      alert('Авторизуйтесь');
+                      alert('Для анализа тестирования необходимо авторизоваться');
+                      $('.action_modal_button').text('Авторизоваться');
+                      $('.action_modal_button').attr('onclick', 'login()');
                   }else if (data == 1){
                       alert('Вы уже проходили тестирование');
+                      $('.action_modal_button').text('Пройти повторно');
+                      $('.action_modal_button').attr('onclick', 'replay()');
                   }else{
-                      alert('Успешно');
+                      alert('Успешно и выводим результаты');
+                      $('.action_modal_button').text('Пройти повторно');
+                      $('.action_modal_button').attr('onclick', 'replay()');
                   }
-                    {{--window.location.href = '{{ route('theme.show',$id) }}';--}}
+                  $('.modal.fade').addClass('show');
                 }
 
             })
