@@ -18,6 +18,7 @@ class CreateAnswerTestTable extends Migration
             $table->integer('id_user');
             $table->integer('id_tem');
             $table->text('answer_test');
+            $table->text('answer_count');
             $table->timestamps();
             $table->softDeletes();
         });

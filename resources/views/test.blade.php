@@ -43,7 +43,7 @@
                         <h1 class="modal-title fs-5" id="exampleModalLiveLabel">Modal title</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body content_modal_block">
                         <p>Woo-hoo, you're reading this text in a modal!</p>
                     </div>
                     <div class="modal-footer">
@@ -192,20 +192,24 @@
                 url:'{{route('test.store')}}',
                 method:'post',
                 dataType:'json',
-                data:{data : mass_test_all, id_test_tem : {{$id}}},
+                data:{data : mass_test_all, mass_test_answer: '{{$mass_test_answer}}', id_test_tem : {{$id}}},
                 success: function(data){
-                  if(data == 0){
+                  if(data['result'] == 0){
                       alert('Для анализа тестирования необходимо авторизоваться');
                       $('.action_modal_button').text('Авторизоваться');
                       $('.action_modal_button').attr('onclick', 'login()');
-                  }else if (data == 1){
+                  }else if (data['result'] == 1){
                       alert('Вы уже проходили тестирование');
                       $('.action_modal_button').text('Пройти повторно');
                       $('.action_modal_button').attr('onclick', 'replay()');
                   }else{
-                      alert('Успешно и выводим результаты');
-                      $('.action_modal_button').text('Пройти повторно');
-                      $('.action_modal_button').attr('onclick', 'replay()');
+                      if(data['success']){
+                          alert('Успешно и выводим результаты');
+                          $('.content_modal_block').text(data['success']);// буду вставлять готовую хтмл генерируемув в контроллере
+                          $('.action_modal_button').text('Пройти повторно');
+                          $('.action_modal_button').attr('onclick', 'replay()');
+                      }
+
                   }
                   $('.modal.fade').addClass('show');
                 }
