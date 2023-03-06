@@ -57,8 +57,6 @@
             var owl = $('.owl-carousel');
             $(document).ready(function() {
 
-
-
                 @php if(!empty($isset_to_table)){ @endphp
                 $('.content_modal_block').html('<p>Вы уже проходили тестирование</p>');
                 $('.action_modal_button').text('Пройти повторно');
@@ -82,33 +80,6 @@
                 $('.go-next').click(function() {
                     owl.trigger('next.owl.carousel');
                 });
-
-
-
-                $('.owl-carousel').on('changed.owl.carousel', function(e) {
-
-
-
-                    // var items     = e.item.count;     // Number of items
-                    // var item      = e.item.index;     // Position of the current item
-                    // var size      = e.page.size;      // Number of items per page
-
-                    // if (item < items) {
-                    //
-                    //
-                    //     console.log('Start');
-                    //
-                    //
-                    // }
-                    //
-                    // if ((items - item) === size) {
-                    //
-                    //  console.log('the end');
-                    //
-                    // }
-
-                });
-
 
             });
 

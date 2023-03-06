@@ -19,6 +19,7 @@ Route::get('/theme/{item}', 'HomeController@show')->name('theme.show');
 Route::get('/test/{item}', 'TestController@show')->name('test.show');
 Route::post('/test', 'TestController@store')->name('test.store');
 Route::post('/test/del', 'TestController@delInfoToTable')->name('test.delInfo');
+Route::get('/account', 'AccountController@index')->name('account');
 
 
     Route::group(['namespace' => 'Admin', 'middleware' => ['role:admin'], 'prefix'=> 'admin'], function(){//prefix подставляет admin во всё что внутри группы в пути , namespace группа контрорреров в папке Admin middleware дал доступ роли админу
