@@ -48,13 +48,13 @@ class TestController extends Controller
 
         }
 
-
+        $j= 0;
         foreach ($mass_test as $key => $item_answer){ //получил массив с ответами
-
+            $j++;
             foreach ($item_answer as $key2 => $item_true){
 
                 if($item_true[1] == 'true'){
-                    $mass_test_answer[$key]=[$key2 => $item_true[1]];
+                    $mass_test_answer[$j]=[$key2 => $item_true[1]];
                 }
 
             }
@@ -92,20 +92,34 @@ class TestController extends Controller
                 if(!empty($_POST['mass_test_answer'])){
 
                     $mass_test_answer = base64_decode($_POST['mass_test_answer']);
-                    $mass_test_answer = json_decode($mass_test_answer);
+                    $mass_test_answer = json_decode($mass_test_answer, true);
+
+                    $answer_test_no_encode= $_POST['data'];
+                    $answer_count=0;
+                    $answer_test_html='<div class="test_answer_block_modal">';
+                    foreach ($answer_test_no_encode as $item){     //ищу правильный ключ ответа зная ответы пользователя
+
+                      if(!empty($mass_test_answer[$item[0]][$item[1]])){
+                          $answer_test_html .='<div><span class="item_test_answer_modal">'.$item[0].'</span><span>+</span></div>';
+                          $answer_count++;
+                      }else{
+                          $answer_test_html .='<div><span class="item_test_answer_modal">'.$item[0].'</span><span>-</span></div>';
+                      }
+
+                    }
+                    $answer_test_html .= '</div>';
 
 
-                     //тут сравниваю 2 массива и узнаю кол-во правильных ответов и записываю в бд
 
                     AdminTestAnswer::create([
                         'id_user'=>auth()->id(),
                         'id_tem'=>$id_test_tem,
                         'answer_test'=>$answer_test,
-                        'answer_count' => '8/8' //answer_count поле с количеством правильных ответов
+                        'answer_count' => $answer_count.'/'.count($_POST['data']) //answer_count поле с количеством правильных ответов
                     ]);
                     $data['result']= 2;
 
-                    $data['success']= 'Всё ок, вот тебе массив с результатом';
+                    $data['success']= $answer_test_html;
 
                 }
 

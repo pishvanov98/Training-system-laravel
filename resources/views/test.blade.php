@@ -40,11 +40,11 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h1 class="modal-title fs-5" id="exampleModalLiveLabel">Modal title</h1>
+                        <h1 class="modal-title fs-5" id="exampleModalLiveLabel">Результат</h1>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body content_modal_block">
-                        <p>Woo-hoo, you're reading this text in a modal!</p>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary close_modal_button" data-bs-dismiss="modal">Закрыть</button>
@@ -60,7 +60,7 @@
 
 
                 @php if(!empty($isset_to_table)){ @endphp
-
+                $('.content_modal_block').html('<p>Вы уже проходили тестирование</p>');
                 $('.action_modal_button').text('Пройти повторно');
                 $('.action_modal_button').attr('onclick', 'replay()');
                 $('.modal.fade').addClass('show');
@@ -195,17 +195,16 @@
                 data:{data : mass_test_all, mass_test_answer: '{{$mass_test_answer}}', id_test_tem : {{$id}}},
                 success: function(data){
                   if(data['result'] == 0){
-                      alert('Для анализа тестирования необходимо авторизоваться');
+                      $('.content_modal_block').html('<p>Для анализа тестирования необходимо авторизоваться</p>');
                       $('.action_modal_button').text('Авторизоваться');
                       $('.action_modal_button').attr('onclick', 'login()');
                   }else if (data['result'] == 1){
-                      alert('Вы уже проходили тестирование');
+                      $('.content_modal_block').html('<p>Вы уже проходили тестирование</p>');
                       $('.action_modal_button').text('Пройти повторно');
                       $('.action_modal_button').attr('onclick', 'replay()');
                   }else{
                       if(data['success']){
-                          alert('Успешно и выводим результаты');
-                          $('.content_modal_block').text(data['success']);// буду вставлять готовую хтмл генерируемув в контроллере
+                          $('.content_modal_block').html(data['success']);
                           $('.action_modal_button').text('Пройти повторно');
                           $('.action_modal_button').attr('onclick', 'replay()');
                       }
