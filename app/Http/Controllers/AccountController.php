@@ -15,61 +15,69 @@ class AccountController extends Controller{
 
             $data = $data->toArray();
             $sum=0;
-            foreach ($data as $item){
-                $expl= explode('/',$item['answer_count']);//правильно отмеченых
-                if(empty($sum)){
-                    $sum = (int)$expl[0];
-                }else{
-                    $sum = $sum + (int)$expl[0];
-                }
-
-            }
-            $tests= AdminTest::all();
-            $tests->toArray();
             $count_mass_test=0;
-            foreach ($tests as $test){
+            if (!empty($data)) {
 
-                $json_decode_test=json_decode($test, true);
-
-
-
-                $json_decode_test['test_info']=explode(',',$json_decode_test['test_info']);
-
-                $json_decode_test['test_info'] = str_replace("]", "", $json_decode_test['test_info']);
-                $json_decode_test['test_info'] = str_replace("[", "", $json_decode_test['test_info']);
-                $json_decode_test['test_info'] = str_replace('"', "", $json_decode_test['test_info']);
-
-
-
-
-                $mass_test=array();
-                $quantity='';
-                foreach ($json_decode_test['test_info'] as $item){ // получил массив с вопросом и ответами
-
-
-                    if (!str_contains($item, '|')) {
-                        $quantity=$item;
-                        continue;
-                    }else{
-                        $item=explode('|', $item);
+                foreach ($data as $item) {
+                    $expl = explode('/', $item['answer_count']);//правильно отмеченых
+                    if (empty($sum)) {
+                        $sum = (int)$expl[0];
+                    } else {
+                        $sum = $sum + (int)$expl[0];
                     }
 
-
-                    $mass_test[$quantity][]=$item;
-
-                }
-                if(empty($count_mass_test)){
-                    $count_mass_test=count($mass_test);
-                }else{
-                    $count_mass_test=$count_mass_test + count($mass_test);
                 }
             }
+                $tests= AdminTest::all();
+                $tests->toArray();
+                if(!empty($tests)){
 
+                    foreach ($tests as $test){
+
+                        $json_decode_test=json_decode($test, true);
+
+
+
+                        $json_decode_test['test_info']=explode(',',$json_decode_test['test_info']);
+
+                        $json_decode_test['test_info'] = str_replace("]", "", $json_decode_test['test_info']);
+                        $json_decode_test['test_info'] = str_replace("[", "", $json_decode_test['test_info']);
+                        $json_decode_test['test_info'] = str_replace('"', "", $json_decode_test['test_info']);
+
+
+
+
+                        $mass_test=array();
+                        $quantity='';
+                        foreach ($json_decode_test['test_info'] as $item){ // получил массив с вопросом и ответами
+
+
+                            if (!str_contains($item, '|')) {
+                                $quantity=$item;
+                                continue;
+                            }else{
+                                $item=explode('|', $item);
+                            }
+
+
+                            $mass_test[$quantity][]=$item;
+
+                        }
+                        if(empty($count_mass_test)){
+                            $count_mass_test=count($mass_test);
+                        }else{
+                            $count_mass_test=$count_mass_test + count($mass_test);
+                        }
+                    }
+
+                }
             $percentage = $sum;
             $totalWidth = $count_mass_test;
-
-            $new_width = ($percentage/$totalWidth) * 100;
-
+if($percentage != 0 || $totalWidth != 0){
+    $new_width = ($percentage/$totalWidth) * 100;
+}else{
+    $new_width = 0;
+}
 
             return view('account', compact('sum', 'count_mass_test','new_width'));
         }else{
