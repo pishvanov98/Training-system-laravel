@@ -3,11 +3,20 @@ namespace App\Http\Controllers;
 
 use App\Models\AdminTest;
 use App\Models\AdminTestAnswer;
+use App\Models\AdminTheme;
 use Illuminate\Http\Request;
 
 class AccountController extends Controller{
 
     public function index (){
+
+
+
+        $breadcrumb=[
+            'Главная'=>route('home'),
+            'Личный кабинет'=>route('account')
+        ];
+
 
         if(!empty(auth()->id())){
 
@@ -16,9 +25,12 @@ class AccountController extends Controller{
             $data = $data->toArray();
             $sum=0;
             $count_mass_test=0;
+            $id_answer_tem= array();
+            $answer_tem= array();
             if (!empty($data)) {
 
                 foreach ($data as $item) {
+                    $id_answer_tem[]=$item['id_tem'];
                     $expl = explode('/', $item['answer_count']);//правильно отмеченых
                     if (empty($sum)) {
                         $sum = (int)$expl[0];
@@ -28,6 +40,18 @@ class AccountController extends Controller{
 
                 }
             }
+
+            if(!empty($id_answer_tem)){
+
+                foreach ($id_answer_tem as $item_id){
+
+                    $them= AdminTheme::findOrFail($item_id);
+                    $answer_tem[]=array($item_id,$them->name_theme);
+
+                }
+            }
+
+
                 $tests= AdminTest::all();
                 $tests->toArray();
                 if(!empty($tests)){
@@ -79,7 +103,7 @@ if($percentage != 0 || $totalWidth != 0){
     $new_width = 0;
 }
 
-            return view('account', compact('sum', 'count_mass_test','new_width'));
+            return view('account', compact('sum', 'count_mass_test','new_width','answer_tem','breadcrumb'));
         }else{
             return redirect()->route('home');
         }

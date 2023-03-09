@@ -204,5 +204,22 @@ footer{
             display: block;
         }
 }
+    .wrapper_content_lk{
+        display: flex;
+        justify-content: space-between;
+        .item_lk{
+            display: block;
+            width: 50%;
+            padding: 10px;
+            h5{
+                margin-top: 10px;
+                text-align: end;
+            }
+            a{
+                text-decoration: none;
+                font-size: 18px;
+            }
+        }
+    }
 
 }

@@ -11,6 +11,14 @@ class TestController extends Controller
 {
     public function show($id){
 
+        $them= AdminTheme::findOrFail($id);
+
+        $breadcrumb=[
+            'Главная' => route('home'),
+            $them->name_theme => route('theme.show',$id),
+            'Тестирование' => route('test.show',$id)
+        ];
+
     $test= AdminTest::where('id_tem', '=', $id)->get();
         $test->toArray();
 
@@ -72,7 +80,7 @@ class TestController extends Controller
             $isset_to_table = false;
         }
 
-        return view('test', compact('mass_test','count_mass_test','id','isset_to_table','mass_test_answer') );
+        return view('test', compact('mass_test','count_mass_test','id','isset_to_table','mass_test_answer','breadcrumb') );
 
     }
 

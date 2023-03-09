@@ -11200,3 +11200,20 @@ footer .pb-3 {
 .Wraper_content_block .modal.show {
   display: block;
 }
+.Wraper_content_block .wrapper_content_lk {
+  display: flex;
+  justify-content: space-between;
+}
+.Wraper_content_block .wrapper_content_lk .item_lk {
+  display: block;
+  width: 50%;
+  padding: 10px;
+}
+.Wraper_content_block .wrapper_content_lk .item_lk h5, .Wraper_content_block .wrapper_content_lk .item_lk .h5 {
+  margin-top: 10px;
+  text-align: end;
+}
+.Wraper_content_block .wrapper_content_lk .item_lk a {
+  text-decoration: none;
+  font-size: 18px;
+}
