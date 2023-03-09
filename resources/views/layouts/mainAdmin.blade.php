@@ -34,7 +34,7 @@
                         <a href="{{ route('admin.test') }}"> Тесты тем </a>
                     </li>
                     <li >
-                        <a href="#"> Ученики</a>
+                        <a href="{{route('admin.users')}}"> Ученики</a>
                     </li>
                 </ul>
 

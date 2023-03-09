@@ -48,6 +48,8 @@ Route::get('/account', 'AccountController@index')->name('account');
             Route::get('/test/create', 'TestThemeController@create')->name('admin.test.create');
             Route::post('/test', 'TestThemeController@store')->name('admin.test.store');
             Route::delete('/test', 'TestThemeController@destroy')->name('admin.test.delete');//метод удаления темы, в форме идет отправка
+
+            Route::get('/users', 'UserController@index')->name('admin.users');
         });
     });
 
